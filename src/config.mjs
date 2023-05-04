@@ -9,7 +9,7 @@ const CONFIG = {
 
   title: 'TheZal Blog',
   description:
-    '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
+    'A personal blog where I write anything about dev and tech!',
   defaultImage: defaultImage,
 
   defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
