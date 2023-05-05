@@ -14,15 +14,15 @@ tags:
 
 Hello There! TheZal here and today I'm gonna show you how to deploy your [Astro](https://astro.build/) Blog on a domain purchased on [Porkbun](https://porkbun.com/) using [GitHub Pages](https://pages.github.com/)
 
-We can say that this guide is composed by three steps:
+We can say that this guide is composed of three steps:
 
-- Setup the your Astro project
+- Setup your Astro project
 - Setup your domain on Porkbun
 - Setup the GitHub Pages section of your repository
 
-## Step 1: setup your astro project
+## Step 1: setup your Astro project
 
-The first thing to do is setup the yaml file.
+The first thing to do is set up the yaml file.
 
 Inside your `astro.config.mjs` file add a section inside the `defineConfig` section.
 
@@ -86,7 +86,7 @@ After this your project setup is finished, so we can continue with the second st
 
 ## Step 2: setup your domain on Porkbun
 
-In this step I will show you how to setup your domain on Porkbun because... well I used Porkbun but I think that this step will be similiar of other domain providers.
+In this step, I will show you how to set up your domain on Porkbun because... well I used Porkbun but I think that this step will be similar to other domain providers.
 
 Go to [Porkbun](https://porkbun.com/), sign in with your account and access to the domain managment page (Account -> Domain Managment)
 
