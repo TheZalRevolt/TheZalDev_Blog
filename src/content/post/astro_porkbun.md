@@ -3,7 +3,7 @@ publishDate: 2023-05-03T00:00:00Z
 title: How to publish an Astro site on Porkbun using GitPages!
 description: A little tutorial on how to deploy an Astro site on a domain hosted on Porkbun using Github Pages
 excerpt: In this article I will talk on how to deploy an Astro site on a domain hosted on Porkbun using Github Pages
-image: ~/assets/images/astro_porkbun_gitpages.jpg
+image: ~/assets/images/astro_porkbun_gitpages.png
 category: Deploy
 tags:
   - deploy
@@ -92,19 +92,19 @@ Go to [Porkbun](https://porkbun.com/), sign in with your account and access to t
 
 Locate the domain that you want to use for your awesome Astro site then click "Details" button to the far right of your domain. Then go to the DNS Records section and select "Edit".
 
-![Alt text](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271b7d3ed262d106f73e4d8/file-9b2EXe4Xqo.png)
+![DNS Records section](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271b7d3ed262d106f73e4d8/file-9b2EXe4Xqo.png)
 
 On the MANAGE DNS RECORDS pop-up scroll down till you see the "Quick DNS Config" section
 
-![Alt text](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6260974ba535c33d541a0ac1/file-Wpt5lmz8wl.png)
+![Manage DNS records](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6260974ba535c33d541a0ac1/file-Wpt5lmz8wl.png)
 
 In this section select the "GitHub" button, click it and confirm it.
 
-![Alt text](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271b95ca65f844e77f88c0c/file-gi0j6yWToZ.png)
+![Github quick settings](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271b95ca65f844e77f88c0c/file-gi0j6yWToZ.png)
 
 You will be redirected to the "ADDITIONAL DNS REQUIREMENTS" pop-up window. There, you'll want to create your subdomain CNAME record. In the Host field, enter the subdomain you want. It can be "www" or whatever you wish it to be.
 
-![Alt text](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271bb2bc5cfff5d83fccad9/file-SudrcHR0JL.png)
+![Additional DNS Requirements](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271bb2bc5cfff5d83fccad9/file-SudrcHR0JL.png)
 
 For the Answer, replace "USERNAME" with your actual GitHub username and select "SUBMIT".
 
@@ -118,9 +118,11 @@ In the GitHub Pages section you will setup a custom domain configuration for dep
 
 1. On GitHub, navigate to your site's repository.
 1. Under your repository name, click Settings. If you cannot see the "Settings" tab, select the dropdown menu, then click Settings.
-   ![Alt text](https://docs.github.com/assets/cb-28266/mw-1440/images/help/repository/repo-actions-settings.webp)
+   ![Github repository settings](https://docs.github.com/assets/cb-28266/mw-1440/images/help/repository/repo-actions-settings.webp)
 1. In the "Code and automation" section of the sidebar, click Pages.
 1. Select GitHub Actions from the menu in the source section
 1. Under "Custom domain", type your custom domain, then click Save.
 
 And that's it! Thanks to GitHub pages when you will push some changes to the `main` branch you will have your Astro site updated!
+
+You found this useful fell free to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal) or [mail](mailto:rick.zal239@gmail.com) and to share it with your dev friends!
