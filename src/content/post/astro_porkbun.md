@@ -88,9 +88,9 @@ After this your project setup is finished, so we can continue with the second st
 
 In this step, I will show you how to set up your domain on Porkbun because... well I used Porkbun but I think that this step will be similar to other domain providers.
 
-Go to [Porkbun](https://porkbun.com/), sign in with your account and access to the domain managment page (Account -> Domain Managment)
+Go to [Porkbun](https://porkbun.com/), sign in with your account, and access the domain management page (Account -> Domain Management)
 
-Locate the domain that you want to use for your awesome Astro site then click "Details" button to the far right of your domain. Then go to the DNS Records section and select "Edit".
+Locate the domain that you want to use for your awesome Astro site then click the "Details" button to the far right of your domain. Then go to the DNS Records section and select "Edit".
 
 ![DNS Records section](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271b7d3ed262d106f73e4d8/file-9b2EXe4Xqo.png)
 
@@ -98,7 +98,7 @@ On the MANAGE DNS RECORDS pop-up scroll down till you see the "Quick DNS Config"
 
 ![Manage DNS records](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6260974ba535c33d541a0ac1/file-Wpt5lmz8wl.png)
 
-In this section select the "GitHub" button, click it and confirm it.
+In this section select the "GitHub" button, click it, and confirm it.
 
 ![Github quick settings](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5854c918c697912ffd6c1d7a/images/6271b95ca65f844e77f88c0c/file-gi0j6yWToZ.png)
 
@@ -108,13 +108,13 @@ You will be redirected to the "ADDITIONAL DNS REQUIREMENTS" pop-up window. There
 
 For the Answer, replace "USERNAME" with your actual GitHub username and select "SUBMIT".
 
-A success message will appear, letting you know that we were able to update your DNS records. You should now see your DNS records successfully updated to the Github Pages DNS under Current Records.
+A success message will appear, letting you know that we were able to update your DNS records. You should now see your DNS records successfully updated to the GitHub Pages DNS under Current Records.
 
-And that's it, your domain on Porkbun is setup!
+And that's it, your domain on Porkbun is set up!
 
 ## Step 3: Setup the GitHub Pages section of your repository
 
-In the GitHub Pages section you will setup a custom domain configuration for deploy your site in the domain you own on Porkbun.
+In the GitHub Pages section, you will set up a custom domain configuration for deploying your site in the domain you own on Porkbun.
 
 1. On GitHub, navigate to your site's repository.
 1. Under your repository name, click Settings. If you cannot see the "Settings" tab, select the dropdown menu, then click Settings.
@@ -125,4 +125,4 @@ In the GitHub Pages section you will setup a custom domain configuration for dep
 
 And that's it! Thanks to GitHub pages when you will push some changes to the `main` branch you will have your Astro site updated!
 
-You found this useful fell free to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal) or [mail](mailto:rick.zal239@gmail.com) and to share it with your dev friends!
+If you found this useful feel free to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal), or [mail](mailto:rick.zal239@gmail.com) and share it with your dev friends!
