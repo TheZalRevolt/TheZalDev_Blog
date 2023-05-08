@@ -3,7 +3,7 @@ import defaultImage from './assets/images/default.png';
 const CONFIG = {
   name: 'AstroWind',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://thezal.dev/',
   basePathname: '/',
   trailingSlash: false,
 
