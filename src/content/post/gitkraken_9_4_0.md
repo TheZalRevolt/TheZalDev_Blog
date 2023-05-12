@@ -1,0 +1,59 @@
+---
+publishDate: 2023-05-11T00:00:00Z
+title: Welcome to the future of Gitkraken aka the experimental feature section!
+description: A short view of the experimental feature section of GitKraken
+excerpt: In this article, I will talk about the new experimental feature section of GitKraken
+image: ~/assets/images/gitkraken_expertimental.png
+category: GitKraken
+tags:
+  - GitKraken
+  - Git
+---
+
+Hello There! TheZal here and today I'm gonna show you how to take a look at the future inside GitKraken!
+
+I'll divide this article into three sections:
+
+- [A quick view to the Experimental Section](#a-quick-view-to-the-expertimental-section)
+- [The first experimental feature: Bundled Git Executable](#the-first-experimental-feature-bundled-git-executable)
+- [The second experimental feature: AI-Generated Commit Messages](#the-second-experimental-feature-ai-generated-commit-messages)
+
+## A quick view of the Experimental Section
+
+With the release of the 9.4.0 version of GitKraken, the `Experimental` section has been added to the `Preferences` menu.
+
+In this section are listed the features currently in development and are being shared to provide you with an early glimpse of the new functionalities that the GitKraken team is working on. It is important to keep in mind that experimental features may not function as intended and are subject to potential modifications or removal in future updates. These settings are entirely optional, meaning that if you encounter any issues, you have the flexibility to disable them at any time.
+
+![Experimental Section](../../assets/images/experimental_section.png)
+
+## The first experimental feature: Bundled Git Executable
+
+Enabling this setting in GitKraken allows the utilization of the Git executable instead of the NodeGit library for specific Git actions, such as fetching and committing. By doing so, you may experience improved performance and enhanced compatibility with certain projects and development environments.
+
+In the dropdown menu is possible to select even an executable of git not bundled with GitKraken but installed in your system.
+
+![Bundleld Git section](../../assets/images/bundled_git.png)
+
+## The second experimental feature: AI-Generated Commit Messages
+
+Let's go straight to the most interesting expertimental feature released in this version of GitKraken: the AI-Generated Commit Messages.
+
+![Ai Commit Message Generation section](../../assets/images/ai_commit_message_generation.png)
+
+By enabling this setting, GitKraken gains the capability to generate commit messages based on any staged changes you have made. Access to this feature can be found in the Command Palette or by clicking the sparkle icon in the commit panel while having staged changes.
+It is important to note that utilizing this feature involves sending a diff of your code changes to OpenAI. Therefore, before generating a commit message, it is crucial to ensure that your code does not contain any sensitive information.
+
+In the prompt section, you can set the rule that you want for your commit. In this example, I prompted the following rules to create the commit for the creation of this article:
+
+- Use the [GitMoji notation](https://gitmoji.dev/)
+- The message length must be less than 50 characters
+- Add a punch line of the main changes
+- Do not use phrases like "this commit", "this change", etc
+
+and the result is:
+
+```
+🎉📦✨ Add images & blog article: assets/images & content/post
+```
+
+If you found this useful feel free to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal), or [mail](mailto:rick.zal239@gmail.com) and share it with your dev friends!
