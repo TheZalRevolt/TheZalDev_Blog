@@ -21,4 +21,4 @@ In the past, I have worked with Angular, but I do not consider myself a develope
 
 Besides this, I am an open-source enthusiast and believe in the principles of software craftsmanship. I strongly believe in the quality of code.
 
-Apart from this, I am a lover of American comics, US sports, and a player of Dungeons and Dragons!
+Apart from this, I am a lover of American comics, US sports (Go Bulls!), and a player of Dungeons and Dragons!
