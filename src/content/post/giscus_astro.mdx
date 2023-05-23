@@ -1,13 +1,13 @@
 ---
 publishDate: 2023-05-23T00:00:00Z
-title: The easiest way to add comments on your blog is Giscus!
-description: A little tutorial on how to integrate Giscus on your Astro Blog
-excerpt: In this article I will talk on how to add comments to an Astro site using Giscus
+title: The easiest way to add comments on your blog is giscus!
+description: A little tutorial on how to integrate giscus on your Astro Blog
+excerpt: In this article I will talk on how to add comments to an Astro site using giscus
 image: ~/assets/images/giscus_astro.png
 category: Blog
 tags:
   - Astro
-  - Giscus
+  - giscus
   - GitHub
   - Comments
 ---
@@ -23,33 +23,33 @@ Hello There! TheZal here and today I'm gonna show you how to add a comment secti
   />
 </p>
 
-The easiest way to add a comment section to your Astro blog is by using [Giscus](https://giscus.app/). Let's break down the steps and make it works!
+The easiest way to add a comment section to your Astro blog is by using [giscus](https://giscus.app/). Let's break down the steps and make it works!
 
-- [What is Giscus?](#what-is-giscus)
+- [What is giscus?](#what-is-giscus)
 - [Prepare your repository](#prepare-your-repository)
-- [Generate your personal script](#)
-- [Let's Code!](#)
-- [A small adjustment](#)
+- [Generate your script](#generate-your-script)
+- [Let's Code!](#lets-code)
+- [A small adjustment](#a-small-adjustment)
 
-## What is Giscus?
+## What is giscus?
 
-Giscus it's an [open source](https://github.com/giscus/giscus) comment system that let visitors leave comments and reactions on your website using [GitHub Discussion](https://docs.github.com/en/discussions). Like they say in their website, the team of Giscus draw inspiration from [Utterances](https://github.com/utterance/utterances).
+giscus it's an [open source](https://github.com/giscus/giscus) comment system that let visitors leave comments and reactions on your website using [GitHub Discussion](https://docs.github.com/en/discussions). As they say on their website, the team of giscus draws inspiration from [Utterances](https://github.com/utterance/utterances).
 
-But what is the difference between them? There is mainly one difference: while Utterances uses the Github Issue system, Giscus uses the GitHub Discussion system.
+But what is the difference between them? There is mainly one difference: while Utterances uses the Github Issue system, giscus uses the GitHub Discussion system.
 
-The workflow of giscus is really easy and efficient, when Giscus is loaded, it utilizes the GitHub Discussions search API to locate the relevant Discussion linked to the page, utilizing a specified mapping such as the URL, pathname, or page title. In case a corresponding discussion is not found, the Giscus bot takes the initiative to create a new discussion when a comment or reaction is left for the first time by any individual.
+The workflow of giscus is really easy and efficient, when giscus is loaded, it utilizes the GitHub Discussions search API to locate the relevant Discussion linked to the page, utilizing a specified mapping such as the URL, pathname, or page title. In case a corresponding discussion is not found, the giscus bot takes the initiative to create a new discussion when a comment or reaction is left for the first time by any individual.
 
-To leave a comment, visitors are required to grant authorization to the Giscus app, allowing it to post on their behalf through the GitHub OAuth flow. Alternatively, visitors have the option to comment directly on the GitHub Discussion itself. The moderation of comments can be conducted on GitHub, providing control over the discussion.
+To leave a comment, visitors are required to grant authorization to the giscus app, allowing it to post on their behalf through the GitHub OAuth flow. Alternatively, visitors have the option to comment directly on the GitHub Discussion itself. The moderation of comments can be conducted on GitHub, providing control over the discussion.
 
 ## Prepare your repository
 
-Without any further let's add Giscus to your Astro site!
+Without any further let's add giscus to your Astro site!
 
 The first thing to do is to set up the repository where your site is hosted by installing the giscus app and enabling the feature of the GitHub discussion on your repository. Remember, to use giscus the repository must be public.
 
 The installation is fast and easy, just visit [the giscus app site](https://github.com/apps/giscus) and install it. Easy peasy.
 
-To enable the discussion feature instead you must go inside the settings of your repository and enable the **Discussion** feature inside the **Features** section.
+To enable the discussion feature instead, you must go inside the settings of your repository and enable the **Discussion** feature inside the **Features** section.
 
 ![Settings](https://docs.github.com/assets/cb-22366/mw-1440/images/help/discussions/public-repo-settings.webp)
 
@@ -59,11 +59,11 @@ import feature_discussion from '../../assets/images/Feature_discussion.png';
 
 The first step is over!
 
-## Generate your personal script
+## Generate your script
 
-The second step is to create your personal script and giscus will guide you.
+The second step is to create your script and giscus will guide you.
 
-Just visit [giscus.app](https://giscus.app/) and fill the fields in the configuration section.
+Just visit [giscus.app](https://giscus.app/) and fill in the fields in the configuration section.
 
 import language_repository from '../../assets/images/language_repository.png';
 
@@ -73,7 +73,7 @@ import mapping_category from '../../assets/images/mapping_category.png';
 
 <Image src={mapping_category} alt="Discussion Mapping and Discussion Category" />
 
-Select the mapping you prefer for your discussion and the category. Using **Announcements** only giscus and the manteiners will be able to create new discussion.
+Select the mapping you prefer for your discussion and the category. Using **Announcements** only giscus and the maintainers will be able to create new discussions.
 
 import features_theme from '../../assets/images/features_theme.png';
 
@@ -83,12 +83,12 @@ Choose the features that fit most on your case and the theme you will use for yo
 
 And if you want a dynamic theme... check the last step!
 
-Under the **Enable giscus** section you will find the script generated by the site. Adding a container with the class `giscus` the comment section will appear inside this container. In my case the script is:
+Under the **Enable giscus** section you will find the script generated by the site. Adding a container with the class `giscus` the comment section will appear inside this container. In my case, the script is:
 
 ```typescript
 <!-- Container -->
 <section class="giscus mx-auto mt-10 max-w-screen-md">
-  <!-- Giscus Script -->
+  <!-- giscus Script -->
   <script
     src="https://giscus.app/client.js"
     data-repo="TheZalRevolt/TheZalDev_Blog"
@@ -111,14 +111,14 @@ Under the **Enable giscus** section you will find the script generated by the si
 
 ## Let's Code!
 
-Ok, you got the code but... where you have to put it?
+Ok, you got the code but... where do you have to put it?
 
 In my case, using an Astro Template for this blog, I decided to create a component with the code generated inside. I called it `CommentSection.astro` and it looks like this:
 
 ```typescript
 <!-- Container -->
 <section class="giscus mx-auto mt-10 max-w-screen-md">
-  <!-- Giscus Script -->
+  <!-- giscus Script -->
   <script
     src="https://giscus.app/client.js"
     data-repo="TheZalRevolt/TheZalDev_Blog"
@@ -138,9 +138,9 @@ In my case, using an Astro Template for this blog, I decided to create a compone
 </section>
 ```
 
-Yeah, exactly the same code of the step up here.
+Yeah, the same code of the step up here.
 
-After the creation of the component I imported it inside the component that manage the layout of the article, which in my case is `SinglePost.astro` and used it where I wanted to.
+After the creation of the component I imported it inside the component that manages the layout of the article, which in my case is `SinglePost.astro`, and used it where I wanted to.
 
 ```html
 ---
@@ -167,11 +167,11 @@ From now on, every article will have its comments section!
 
 ## A small adjustment
 
-But what if your site got a toggle that allow you to switch between dark and light theme?
+But what if your site got a toggle that allows you to switch between dark and light themes?
 
-Right now you have a static theme for your comment section determined by the value of the `data-theme` row of the script, but it is possible to change it dinamically by sending a message event from the parent page to giscus!
+Right now you have a static theme for your comment section determined by the value of the `data-theme` row of the script, but it is possible to change it dynamically by sending a message event from the parent page to giscus!
 
-First of all you have to find the handle of the toggle (thanks [Balastrong](https://github.com/Balastrong)) and then add the code to make it send a message to giscus.
+First of all, you have to find the handle of the toggle (thanks [Balastrong](https://github.com/Balastrong)) and then add the code to make it send a message to giscus.
 
 I used the following code:
 
