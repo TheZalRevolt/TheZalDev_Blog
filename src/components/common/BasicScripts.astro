@@ -48,6 +48,10 @@ import { SITE } from '~/config.mjs';
       }
       document.documentElement.classList.toggle('dark');
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: localStorage.theme } } }, 'https://giscus.app');
     });
 
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
