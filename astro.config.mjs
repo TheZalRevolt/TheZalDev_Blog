@@ -21,7 +21,7 @@ export default defineConfig({
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'static',
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin]
+    remarkPlugins: [readingTimeRemarkPlugin],
   },
   integrations: [tailwind({
     config: {

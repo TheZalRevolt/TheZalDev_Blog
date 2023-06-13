@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon';
 import Logo from '~/components/Logo.astro';
-import Search from '~/components/Search.astro';
+import {OramaSearch} from '~/components/common/OramaSearch';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 
@@ -99,7 +99,7 @@ const {
           </ul>
         </nav>
         <a class="flex items-center">
-          {/* <Search /> */}
+          <OramaSearch client:load />
         </a>
         <div class:list={[{ 'ml-auto': position === 'left' }, 'md:self-center flex items-center md:mb-0']}>
           <div class="hidden items-center md:flex">
