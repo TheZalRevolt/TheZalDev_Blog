@@ -31,7 +31,8 @@ export default defineConfig({
     serviceEntryPoint: '@astrojs/image/sharp'
   }), mdx(), react(), orama({
     articles: {
-      pathMatcher: /.*/
+      pathMatcher: /.*/ // match all folders inside /dist
+      // pathMatcher: /^(?!.*\/.*\/).*\/$/
     }
   }), ...whenExternalScripts(() => partytown({
     config: {

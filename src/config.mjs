@@ -1,7 +1,7 @@
 import defaultImage from './assets/images/home_image.png';
 
 const CONFIG = {
-  name: 'AstroWind',
+  name: '',
 
   origin: 'https://thezal.dev/',
   basePathname: '/',
