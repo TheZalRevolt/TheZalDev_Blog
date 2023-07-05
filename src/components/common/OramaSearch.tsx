@@ -5,17 +5,7 @@ import React, { useEffect, useState, CSSProperties } from 'react';
 export const OramaSearch = () => {
   const [result, setResult] = useState<any | undefined>(undefined);
   const [showDiv, setShowDiv] = useState(false);
-  const [backgroundColor, setBackgroundColor] = useState('');
 
-  useEffect(() => {
-    const handleBackgroundColor = () => {
-      const body = document.body;
-      const computedStyle = getComputedStyle(body);
-      const bgColor = computedStyle.backgroundColor;
-      setBackgroundColor(bgColor);
-    };
-    handleBackgroundColor();
-  }, []);
   const search = async (searchTerm: string) => {
 
       if(searchTerm.length > 2){
@@ -25,7 +15,7 @@ export const OramaSearch = () => {
         const res = await searchOrama(db, { term: searchTerm });
         var hits: {title: string; path: string}[] = res["hits"].map((hit: any) => [hit.document.title, hit.document.path]);
 
-        hits.length > 0 ? setShowDiv(true) : setShowDiv(false);
+        setShowDiv(hits.length > 0);
 
         setResult(hits);
       }
@@ -45,7 +35,7 @@ export const OramaSearch = () => {
     opacity: 1,
     padding: '20px',
     zIndex: 2,
-    backgroundColor: backgroundColor,
+    backgroundColor: localStorage.theme === 'dark' ? '#1F2937' : 'white',
   };
 
   return (
@@ -59,7 +49,7 @@ export const OramaSearch = () => {
       <div id='searchResults' style={divStyle}>
       {result.map((element, index) => (
         <React.Fragment key={index}>
-          <a href={element[1]}>{element[0]}</a>
+          <a href={element.path}>{element.title}</a>
           {index !== result.length - 1 && <br />}
           </React.Fragment>
         ))}
