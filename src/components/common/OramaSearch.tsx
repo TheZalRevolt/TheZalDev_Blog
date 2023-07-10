@@ -49,7 +49,7 @@ export const OramaSearch = () => {
       <div id='searchResults' style={divStyle}>
       {result.map((element, index) => (
         <React.Fragment key={index}>
-          <a href={element.path}>{element.title}</a>
+          <a href={element[1]}>{element[0]}</a>
           {index !== result.length - 1 && <br />}
           </React.Fragment>
         ))}
