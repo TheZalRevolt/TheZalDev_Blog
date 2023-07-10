@@ -1,5 +1,5 @@
 import { getOramaDB, search as searchOrama } from '@orama/plugin-astro/client';
-import React, { useEffect, useState, CSSProperties } from 'react';
+import React, { useState, CSSProperties } from 'react';
 
 // <OramaSearch client:load />
 export const OramaSearch = () => {
@@ -25,7 +25,7 @@ export const OramaSearch = () => {
       }
   };
 
-  const divStyle: CSSProperties = {
+  const searchResultsDivStyle: CSSProperties = {
     position: 'fixed',
     borderTop: '1px solid white',
     borderRight: '1px solid white',
@@ -46,7 +46,7 @@ export const OramaSearch = () => {
       style={{height: '60px'}}
       onChange={(e) => search(e.target.value)} />
       {showDiv && 
-      <div id='searchResults' style={divStyle}>
+      <div id='searchResults' style={searchResultsDivStyle}>
       {result.map((element, index) => (
         <React.Fragment key={index}>
           <a href={element[1]}>{element[0]}</a>
