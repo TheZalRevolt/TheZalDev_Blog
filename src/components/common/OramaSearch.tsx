@@ -1,7 +1,6 @@
 import { getOramaDB, search as searchOrama } from '@orama/plugin-astro/client';
 import React, { useState, CSSProperties } from 'react';
 
-// <OramaSearch client:load />
 export const OramaSearch = () => {
   const [result, setResult] = useState<any | undefined>(undefined);
   const [showDiv, setShowDiv] = useState(false);
