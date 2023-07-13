@@ -4,9 +4,10 @@ import React, { useState, CSSProperties } from 'react';
 export const OramaSearch = () => {
   const [result, setResult] = useState<any | undefined>(undefined);
   const [showDiv, setShowDiv] = useState(false);
+  const [bgColor, setBgColor] = useState('white');
 
   const search = async (searchTerm: string) => {
-
+    const bgColor = localStorage.theme === 'dark' ? '#1F2937' : 'white'
       if(searchTerm.length > 2){
 
         const db = await getOramaDB('articles');
@@ -20,8 +21,8 @@ export const OramaSearch = () => {
       }
       else{
         setShowDiv(false);
-
       }
+      setBgColor(bgColor);
   };
 
   const searchResultsDivStyle: CSSProperties = {
@@ -34,7 +35,7 @@ export const OramaSearch = () => {
     opacity: 1,
     padding: '20px',
     zIndex: 2,
-    backgroundColor: '#1F2937',
+    backgroundColor: bgColor,
   };
 
   return (
