@@ -49,6 +49,12 @@ import { SITE } from '~/config.mjs';
       document.documentElement.classList.toggle('dark');
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 
+      const searchResultsDiv = document.getElementById('searchResults');
+      if (searchResultsDiv != null) {
+        searchResultsDiv.style.backgroundColor = document.documentElement.classList.contains('dark')
+          ? 'rgb(15 23 42 / var(--tw-bg-opacity))'
+          : 'white';
+      }
       const iframe = document.querySelector('iframe.giscus-frame');
       if (!iframe) return;
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: localStorage.theme } } }, 'https://giscus.app');
