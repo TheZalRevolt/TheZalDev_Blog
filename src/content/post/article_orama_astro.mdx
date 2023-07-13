@@ -1,0 +1,413 @@
+---
+publishDate: 2023-07-13T00:00:00Z
+title: Sky's the Limit! Supercharging Your Astro Blog with Orama, the Ultimate Stargazing Search Engine!
+description: How to implement Orama Search in every Astro site!
+excerpt: Orama + Astro = ❤️
+image: ~/assets/images/astro_orama.png
+category: Astro
+tags:
+  - Orama
+  - Javascript
+  - Astro
+  - Frontend
+---
+
+import { Image } from '@astrojs/image/components';
+
+Hello There, TheZal here! Ever wanted to slap a fully customizable full-text search on your Astro website?
+Well, if you've so much as dreamt about it once, then this guide is right up your alley! Let's discover [Orama](https://oramasearch.com/)!
+
+<p align="center">
+  <img
+    src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTMyMDdmMDEwN2Y1MmU3NWZiM2EzOGE3NDZmNDExMmU5MDkxZjMyZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Nx0rz3jtxtEre/giphy.gif"
+    alt="Hello There!"
+  />
+</p>
+
+- [What is Orama Search?](#what-is-orama-search)
+- [How the heck does Orama actually work?](#how-the-heck-does-orama-actually-work)
+- [Oramaze everything!](#oramaze-everything)
+- [A little bit of code](#a-little-bit-of-code)
+- [Contribute to Orama!](#contribute-to-orama)
+- [Conclusions](#conclusions)
+
+## What is Orama Search?
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://i.pinimg.com/originals/f6/eb/11/f6eb118ef5bb9ecc37d6bc4b7e10accb.gif"
+    alt="What is Orama Search?"
+  />
+</p>
+
+So, let's talk about Orama and how it works: this search engine is the real deal, written entirely in TypeScript. It's lightning-fast, able to search through millions of documents in less than a millisecond, yeah, we're talking microseconds!
+
+Orama comes packed with a bunch of impressive features like typo tolerance, facets, filters, and even supports stop word removal and stemming in 26 languages. The best part? It's built with zero dependencies, so you know it's got that independent spirit. You can run Orama wherever JavaScript runs, which is pretty sweet.
+
+And guess what? It's free and open source, so you can join in the discussions on [GitHub](https://github.com/oramasearch/orama) or hop on the [Slack channel](https://orama.to/slack)!
+
+Get involved in this fast-growing community of developers who are shaping the next generation of full-text search engines. Exciting stuff, right?
+
+## How the heck does Orama actually work?
+
+<p align="center">
+  <img width="480" height="480" src="https://i.gifer.com/7OJU.gif" alt="Orama Squad" />
+</p>
+
+Let's break into the steps to utilize Orama and analyze how it works. I won't dig into the technical stuff because, hey, it's an open-source project, which means you can easily peek at the [source code](https://github.com/oramasearch/orama), no problemo!
+
+#### Installation
+
+It's possible to install it using `npm`, `yarn`, `pnpm`:
+
+```
+npm i @orama/orama
+```
+
+```
+yarn add @orama/orama
+```
+
+```
+pnpm add @orama/orama
+```
+
+or import it directly in a browser module:
+
+```javascript
+<html>
+  <body>
+    <script type="module">
+      import {(create, search, insert)} from 'https://unpkg.com/@orama/orama@latest/dist/index.js' // ...
+    </script>
+  </body>
+</html>
+```
+
+#### Creation of the database
+
+Orama uses its own database which can be created with few lines of code.
+
+Let me show an example of a simple Pokémon database
+
+```javascript
+import { create, insert, remove, search } from '@orama/orama';
+
+const pokemon_db = await create({
+  schema: {
+    name: 'string',
+    description: 'string',
+    id_pokedex: 'number',
+  },
+});
+```
+
+So, here's the deal with Orama. It's all about indexing string stuff, like properties and whatnot. But hey, if you need to set and store some extra data, no worries, you can totally do that too.
+
+Once you've got your db instance all setup, it's time to start throwing in some documents. Let the fun begin!
+
+```javascript
+await insert(pokemon_db, {
+  name: 'Bulbasaur',
+  description: 'A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.',
+  id_pokedex: 1,
+});
+
+await insert(pokemon_db, {
+  name: 'Charmander',
+  description: 'Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.',
+  id_pokedex: 4,
+});
+
+await insert(pokemon_db, {
+  name: 'Squirtle',
+  description: 'After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.',
+  id_pokedex: 7,
+});
+```
+
+#### Query the database
+
+Alright, now that all the data's in the house, it's time to get down to business and start querying that database like a boss! Let the search extravaganza begin!
+
+```javascript
+const searchResult = await search(pokemon_db, {
+  term: 'squirtle',
+});
+```
+
+In this scenario, we're on a mission to find all the documents that have the word "squirtle" in them. We're gonna dive deep into every nook and cranny, searching through every schema property (yeah, they are called indexes). Get ready to unleash the search power!
+
+```javascript
+{
+  elapsed: {
+    raw: 95357,
+    formatted: '95μs',
+  },
+  hits: [
+    {
+      id: '53290575-24',
+      score: 0.814974732853017259,
+      document: {
+          name: 'Squirtle',
+          description: 'After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.',
+          id_pokedex: 7
+      }
+    }
+  ],
+  count: 1
+}
+```
+
+It is also possible to specify the property to lookup
+
+```javascript
+const searchResult = await search(pokemon_db, {
+  term: 'tail',
+  properties: ['description'],
+});
+```
+
+and of course, we will get:
+
+```javascript
+{
+  elapsed: {
+    raw: 51687,
+    formatted: '51μs',
+  },
+  hits: [
+    {
+      id: '64437599-23',
+      score: 0.669342702734917259,
+      document: {
+          name: 'Charmander',
+          description: 'Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.',
+          id_pokedex: 4
+      }
+    }
+  ],
+  count: 1
+}
+```
+
+## Oramaze everything!
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/MwtM1m4RbegAAAAC/dogs-digging.gif"
+    alt="Oramaze everything"
+  />
+</p>
+
+Since the beginning of this rad project, Orama has been all about keeping things simple and making it super easy to add new features. They've nailed it with a slick plugin system that lets you customize Orama just the way you want, while keeping the core super lean and mean.
+
+Right now, the awesome Orama core team is busy cooking up some cool hooks that will let the community dive right in and tinker with Orama's inner workings. Talk about getting hands-on!
+
+But wait, there's more! The Orama core team is also working on some official plugins to support specific features that might not be everyone's cup of tea. So, no worries, you can cherry-pick the exact features you dig and leave the rest behind.
+
+And guess what? You can find all the juicy source code of these official plugins chilling out in the Orama monorepo. Just head over to the packages directory and dive into the magic. It's open for all to see!
+
+So, check it out: since I added Orama to my Astro-based blog, I thought it would be dope to write about how I actually implemented Orama on Astro using its plugin.
+
+## A little bit of code
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://raw.githubusercontent.com/laudep/code-gif-generator/master/docs/img/generating.gif"
+    alt="A little bit of code"
+  />
+</p>
+
+The "plugin-astro" plugin is an incredible tool that brings a whole new level of functionality to your Astro websites.
+
+With this plugin, you can effortlessly index the content of your Astro site and provide your visitors with a powerful text search feature, it's like having a customized search engine right on your site, giving your users a seamless search experience!
+
+Let's set up it!
+
+#### Installation
+
+It is possible to install the plugin with any major Node.js package manager:
+
+```
+npm install @orama/plugin-astro
+```
+
+```
+yarn add @orama/plugin-astro
+```
+
+```
+pnpm add @orama/plugin-astro
+```
+
+and that's it!
+
+#### Database creation
+
+The database will be created inside the `dist` folder of the project and will be named after the configuration inside the `astro.config.mjs` file.
+
+Mine is:
+
+```javascript
+import orama from '@orama/plugin-astro';
+
+export default defineConfig({
+  integrations: [
+    orama({
+      // It is possible to have more than one DB, with different configurations
+      articles: {
+        // Required. Only pages matching this path regex will be indexed. The regex starts from the dist folder.
+        pathMatcher: /^article_/,
+
+        // Optional. 'english' by default
+        language: 'english',
+
+        // Optional. ['body'] by default. Use it to constraint what is used to
+        // index a page.
+        contentSelectors: ['body'],
+      },
+    }),
+  ],
+});
+```
+
+Let's have a fast look at what I have inside the configuration:
+
+1. `articles:` : it's the database name that I am using
+1. `pathMatcher: /^article_/` : it's the regex that will be used to create the database: will be added any file that respects the rule written here: , I use `/^article_/` because every article in this blog has the 'article\_' prefix in its name
+1. `language: 'english'` : I use english by default
+1. `contentSelectors: ['body']` : I use the default contestSelector
+
+From now on when the build is launched a fresh database will be created!
+
+#### The search component
+
+To use Orama I created a react component called `OramaSearch.tsx` that allows me to use it inside the `Header.astro` component.
+
+This is my first react component so there are errors for sure but let's see some code:
+
+```javascript
+import { getOramaDB, search as searchOrama } from '@orama/plugin-astro/client';
+import React, { useState, CSSProperties } from 'react';
+
+export const OramaSearch = () => {
+  const [result, setResult] = (useState < any) | (undefined > undefined);
+  const [showDiv, setShowDiv] = useState(false);
+
+  const search = async (searchTerm: string) => {
+    if (searchTerm.length > 2) {
+      //searchTerm is the input of the input box
+
+      const db = await getOramaDB('articles');
+
+      const res = await searchOrama(db, { term: searchTerm });
+      var hits: { title: string, path: string }[] = res['hits'].map((hit: any) => [
+        hit.document.title,
+        hit.document.path,
+      ]);
+
+      setShowDiv(hits.length > 0);
+
+      setResult(hits);
+    } else {
+      setShowDiv(false);
+    }
+  };
+
+  const searchResultsDivStyle: CSSProperties = {
+    position: 'fixed',
+    borderTop: '1px solid white',
+    borderRight: '1px solid white',
+    borderBottom: '1px solid white',
+    borderLeft: '1px solid white',
+    borderRadius: '10px',
+    opacity: 1,
+    padding: '20px',
+    zIndex: 2,
+    backgroundColor: localStorage.theme === 'dark' ? '#1F2937' : 'white',
+  };
+
+  return (
+    <div>
+      <div>
+        <input
+          type="text"
+          className="searchInputBox"
+          style={{ height: '60px' }}
+          onChange={(e) => search(e.target.value)}
+        />
+        {showDiv && (
+          <div id="searchResults" style={searchResultsDivStyle}>
+            {result.map((element, index) => (
+              <React.Fragment key={index}>
+                <a href={element[1]}>{element[0]}</a>
+                {index !== result.length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default OramaSearch;
+```
+
+I made the search result div even cooler by dynamically setting its background color, this way, it seamlessly adapts to the theme changes.
+
+Speaking of themes, I also added an instruction to the function that handles theme changes, so the background of the div reflects the current theme. It's all about those little details that make the user experience top-notch!
+
+#### Use the component
+
+Inside the navbar in the header component, I added the component created with a few lines of code:
+
+```html
+<li>
+  <a class="flex items-center">
+    <OramaSearch client:load />
+  </a>
+</li>
+```
+
+and that's all! The final result is under the eyes of everyone! Just [look up!](https://media.tenor.com/DeuX8-6sqikAAAAM/whats-that-dr-randall-mindy.gif)
+
+## Contribute to Orama!
+
+<p align="center">
+  <img src="https://i.gifer.com/27h4.gif" alt="Contribution is the mission" />
+</p>
+
+To wrap it all up, integrating Orama into your Astro website is a piece of cake. Although the project is still in its early stages and may not have all the fancy bells and whistles just yet, rest assured that it works like a charm. The team behind Orama has big plans to add exciting new features soon, so there's definitely more awesomeness to come.
+
+If you have a feature in mind that you'd like to see or if you're feeling extra adventurous and want to contribute to this incredible project, you're in luck! Check out the [contribute guidelines](https://github.com/oramasearch/orama/blob/main/CONTRIBUTING.md) on the GitHub repository and start collaborating. You can even explore the issues and see if there are any bounties up for grabs. Contributing not only helps improve the project but can also put some extra cash in your pocket. It's a win-win!
+
+So, don't hesitate to give Orama a whirl and join the growing community of developers who are shaping the future of full-text search engines. Exciting times lie ahead!
+
+## Conclusions
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://thumbs.gfycat.com/FlippantComplicatedAustraliankelpie-size_restricted.gif"
+    alt="Orama gets it!"
+  />
+</p>
+
+After all, we can say that the addition of a search engine it's a piece of cake using Orama! 🔍
+
+A little shout to the Microsoft MVP [Luca Del Puppo](https://www.delpuppo.net/), check out his articles on how to use Orama inside a React application:
+
+- [OramaSearch a full-text search in your react application](https://blog.delpuppo.net/oramasearch-a-full-text-search-in-your-react-application)
+
+And another little shout to [Balastrong](https://github.com/balastrong) aka [DevLeonardo](https://www.youtube.com/c/DevLeonardo) for helping me in the early steps of the integration of Orama inside an Astro blog!
+
+If you found this useful feel free to leave a comment here or to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal), or [mail](mailto:rick.zal239@gmail.com) and share it with your dev friends!

@@ -7,6 +7,8 @@ import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
+import orama from '@orama/plugin-astro';
+import react from '@astrojs/react';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { SITE } from './src/config.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -19,7 +21,7 @@ export default defineConfig({
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
   output: 'static',
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin]
+    remarkPlugins: [readingTimeRemarkPlugin],
   },
   integrations: [tailwind({
     config: {
@@ -27,7 +29,11 @@ export default defineConfig({
     }
   }), sitemap(), image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), mdx(), ...whenExternalScripts(() => partytown({
+  }), mdx(), react(), orama({
+    articles: {
+      pathMatcher: /^article_/
+    }
+  }), ...whenExternalScripts(() => partytown({
     config: {
       forward: ['dataLayer.push']
     }
