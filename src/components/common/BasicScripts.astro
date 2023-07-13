@@ -50,11 +50,11 @@ import { SITE } from '~/config.mjs';
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 
       const searchResultsDiv = document.getElementById('searchResults');
-
-      searchResultsDiv.style.backgroundColor = document.documentElement.classList.contains('dark')
-        ? 'rgb(15 23 42 / var(--tw-bg-opacity))'
-        : 'white';
-
+      if (searchResultsDiv != null) {
+        searchResultsDiv.style.backgroundColor = document.documentElement.classList.contains('dark')
+          ? 'rgb(15 23 42 / var(--tw-bg-opacity))'
+          : 'white';
+      }
       const iframe = document.querySelector('iframe.giscus-frame');
       if (!iframe) return;
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: localStorage.theme } } }, 'https://giscus.app');

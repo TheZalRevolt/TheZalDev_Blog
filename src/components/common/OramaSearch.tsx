@@ -7,7 +7,7 @@ export const OramaSearch = () => {
   const [bgColor, setBgColor] = useState('#1F2937');
 
   const search = async (searchTerm: string) => {
-    const bgColor = localStorage.theme === 'dark' ? '#1F2937' : 'white'
+    const bgColor = localStorage.theme === 'light' ? 'white' : '#1F2937';
       if(searchTerm.length > 2){
 
         const db = await getOramaDB('articles');
