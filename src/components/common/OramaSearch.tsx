@@ -34,7 +34,7 @@ export const OramaSearch = () => {
     opacity: 1,
     padding: '20px',
     zIndex: 2,
-    backgroundColor: localStorage.theme === 'dark' ? '#1F2937' : 'white',
+    backgroundColor: '#1F2937',
   };
 
   return (
