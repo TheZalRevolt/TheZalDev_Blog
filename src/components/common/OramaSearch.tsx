@@ -4,7 +4,7 @@ import React, { useState, CSSProperties } from 'react';
 export const OramaSearch = () => {
   const [result, setResult] = useState<any | undefined>(undefined);
   const [showDiv, setShowDiv] = useState(false);
-  const [bgColor, setBgColor] = useState('white');
+  const [bgColor, setBgColor] = useState('#1F2937');
 
   const search = async (searchTerm: string) => {
     const bgColor = localStorage.theme === 'dark' ? '#1F2937' : 'white'
