@@ -32,6 +32,10 @@ Hello there, TheZal here! Today, we're going to talk about something that's a ga
 
 ## What the f...low?
 
+<p align="center">
+  <img width="480" height="480" src="https://media.tenor.com/JTYp4Pou6C0AAAAM/flow-dance.gif" alt="What is GitFlow?" />
+</p>
+
 Gitflow is a popular branching model that provides a structured approach to managing Git repositories. It was introduced by Vincent Driessen as a set of guidelines to facilitate collaboration and streamline the development process. At its core, Gitflow defines specific branches for different purposes, making it easier for developers to work in a coordinated manner.
 
 The main branches in Gitflow are:
@@ -48,39 +52,66 @@ The main branches in Gitflow are:
 
 ## But what's the real gain?
 
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/puvU5YS9r4cAAAAM/uncle-scrooge-mcduck-money.gif"
+    alt="Chding! Money!"
+  />
+</p>
+
 Gitflow brings several benefits to the development process, making it a preferred workflow for many teams:
 
-a) **Clear Structure**: The defined branches give a clear structure to the repository, making it easier to understand the state of the project at any given time.
+- **Clear Structure**: The defined branches give a clear structure to the repository, making it easier to understand the state of the project at any given time.
 
-b) **Parallel Development**: Gitflow allows developers to work on multiple features simultaneously without affecting the main codebase.
+- **Parallel Development**: Gitflow allows developers to work on multiple features simultaneously without affecting the main codebase.
 
-c) **Stability and Reliability**: By keeping the master branch stable at all times, you ensure that production releases are reliable and free from experimental or unfinished code.
+- **Stability and Reliability**: By keeping the master branch stable at all times, you ensure that production releases are reliable and free from experimental or unfinished code.
 
-d) **Easy Collaboration**: Developers can collaborate effectively by following a set of rules and guidelines. The process of merging and reviewing code becomes smoother.
+- **Easy Collaboration**: Developers can collaborate effectively by following a set of rules and guidelines. The process of merging and reviewing code becomes smoother.
 
-e) **Hotfix Deployment**: The hotfix branches enable swift bug fixes in production, preventing any prolonged downtime.
+- **Hotfix Deployment**: The hotfix branches enable swift bug fixes in production, preventing any prolonged downtime.
 
 ## Believe the Flow!
 
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://y.yarn.co/c2b0f257-7a9a-4580-b202-90385e2ce4e4_text.gif"
+    alt="Believe the Flow!"
+  />
+</p>
+
 For Gitflow to be effective, it's essential to adhere to some best practices:
 
-a) **Commit Often**: Frequent commits in feature branches make it easier to track changes and isolate potential issues.
+- **Commit Often**: Frequent commits in feature branches make it easier to track changes and isolate potential issues.
 
-b) **Code Reviews**: Encourage thorough code reviews before merging any branches. This helps maintain code quality and reduces the likelihood of introducing bugs.
+- **Code Reviews**: Encourage thorough code reviews before merging any branches. This helps maintain code quality and reduces the likelihood of introducing bugs.
 
-c) **Continuous Integration**: Implement a robust CI/CD pipeline to automatically build, test, and deploy changes. This ensures that the code is always in a releasable state.
+- **Continuous Integration**: Implement a robust CI/CD pipeline to automatically build, test, and deploy changes. This ensures that the code is always in a releasable state.
 
-d) **Versioning**: Consider adopting semantic versioning to make it clear what each release contains in terms of new features, bug fixes, or breaking changes.
+- **Versioning**: Consider adopting semantic versioning to make it clear what each release contains in terms of new features, bug fixes, or breaking changes.
 
-e) **Avoid Direct Commits to Master and Develop**: All code changes should go through the appropriate branch, even for urgent bug fixes.
+- **Avoid Direct Commits to Master and Develop**: All code changes should go through the appropriate branch, even for urgent bug fixes.
 
-## To Merge or to Rebase?
+## To Merge or ~~not To Merge~~ To Rebase?
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://64.media.tumblr.com/89596e2e1ca08e7eb6ced8c4a52ea363/tumblr_o0lwzovTms1qll70fo3_500.gif"
+    alt="Shakespeare's Hamlet"
+  />
+</p>
 
 Two common Git commands for integrating changes from one branch into another are `git merge` and `git rebase`.
 
-a) **Git Merge**: When you merge a branch into another, Git combines the changes and creates a new commit on the target branch. This preserves the commit history of both branches but can result in a more cluttered history, especially when dealing with multiple feature branches.
+- **Git Merge**: When you merge a branch into another, Git combines the changes and creates a new commit on the target branch. This preserves the commit history of both branches but can result in a more cluttered history, especially when dealing with multiple feature branches.
 
-b) **Git Rebase**: Rebase, on the other hand, moves the entire feature branch to a new base commit. It essentially replays the changes on top of the target branch, resulting in a linear commit history. This makes the history cleaner and easier to follow but can lead to conflicts that need to be resolved before completing the rebase.
+- **Git Rebase**: Rebase, on the other hand, moves the entire feature branch to a new base commit. It essentially replays the changes on top of the target branch, resulting in a linear commit history. This makes the history cleaner and easier to follow but can lead to conflicts that need to be resolved before completing the rebase.
 
 So when should you use one over the other?
 
@@ -92,22 +123,152 @@ It's important to note that while rebasing can offer a cleaner history, it shoul
 
 ## The Kraken inside the Flow!
 
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://cdn.dribbble.com/users/2688443/screenshots/14115576/media/b812d7f53c2977c49cbd6a9566d007a9.gif"
+    alt="Krakenize the flow!"
+  />
+</p>
+
 GitKraken is a popular Git client that provides an intuitive and user-friendly interface for working with Git repositories, including support for Gitflow. Here's how you can leverage GitKraken to implement Gitflow effectively:
 
-a) **Initializing Gitflow**: To get started with Gitflow in GitKraken, navigate to your repository, and click on the "Initialize Gitflow" button. This will set up the necessary branches and configurations.
+### Initializing Gitflow
 
-b) **Feature Branches**: Creating feature branches is a breeze with GitKraken. Simply click on the "Gitflow" button and select "Start a new Feature." Give your branch a name, and you're good to go.
+First initialize Gitflow in Preferences -> Gitflow and change the default branch names if desired.
 
-c) **Release and Hotfix Branches**: Similar to feature branches, you can easily create release and hotfix branches using the GitKraken interface.
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//gitflow.png"
+    alt="Gitflow Preferences"
+    width="800"
+    height="563"
+  />
+</p>
 
-d) **Managing Pull Requests**: GitKraken provides a simple interface to manage pull requests, review code changes, and merge branches seamlessly.
+Once you set things up, you'll always find two branches: "master," which is the one we use in production, and "develop," the version we're currently working on for the next release.
 
-e) **Visualizing Gitflow**: One of GitKraken's strengths is its visual representation of Gitflow, making it easier for developers to understand the current state of the repository.
+Any changes we make are merged into these branches. If you don't already have these branches in your local repository, don't worry! GitKraken Client will create them for you when Gitflow is set up.
+
+### Usage
+
+Once you've got Gitflow set up in your repository, you'll notice an extra menu on the left panel. From there, you can easily start or finish any of your Gitflow branches.
+
+If you want to create a new Gitflow branch, just hit the green button on the Gitflow menu to the left.
+
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//git-flow-start@2x.png"
+    alt="Gitflow Menu"
+    width="1218"
+    height="440"
+  />
+</p>
+
+When you're adding a branch, make sure to include the prefix for the Gitflow branch type, like "feature/branch-name" for example. If you forget to add the prefix, the branch will still show up in the local repository section, but it won't appear in the Gitflow menu. So, it's essential to follow the naming convention to manage your branches effectively.
+
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//git-flow-folders@2x.png"
+    alt="Gitflow Start Branch"
+    width="478"
+    height="294"
+  />
+</p>
+
+### Feature Branches
+
+Feature branches are handy for working on new features or fixing bugs. They are usually kept within your local repository and not shared with others until they are ready.
+
+When you finish working on a feature branch, GitKraken Client will take care of merging it into the "develop" branch and remove the feature branch from your local repository, so you don't have to worry about that.
+
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//finish-feature.gif"
+    alt="Gitflow Feature Branch"
+    width="804.734"
+    height="452.656"
+  />
+</p>
+
+Additionally, you can choose to rebase the feature branch on top of the "develop" branch if you prefer that approach for integrating changes.
+
+### Release Branches
+
+Releases represent significant updates or improvements to your product, and they come in major and minor versions. These versions are usually shared with other collaborators who are also working on the same release.
+
+Once a release is ready to go, when you finish it, GitKraken Client will handle the process of merging the release branch into both the "master" and "develop" branches. This action also creates a tag with the release name, which is useful for future reference and version tracking.
+
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//finish-release.gif"
+    alt="Gitflow Release Branch"
+    width="804.734"
+    height="452.656"
+  />
+</p>
+
+### Hotfix Branches
+
+Hotfixes in Gitflow are similar to Releases, but with one key difference: hotfix branches are created on top of the "master" branch, while release branches are created on top of the "develop" branch.
+
+Hotfixes are designed for swiftly deploying critical changes to the production branch. They are commonly used for fixing typos, addressing urgent bugs, and making quick updates that need to be pushed out to production as soon as possible.
+
+Once a hotfix is ready, GitKraken Client takes care of merging the changes into both the "master" and "develop" branches, ensuring that the fix is incorporated into both the production and ongoing development codebases. This helps maintain consistency and keeps the codebase up to date with the latest changes.
+
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//finish-hotfix.gif"
+    alt="Gitflow Hotfix Branch"
+    width="804.734"
+    height="452.656"
+  />
+</p>
+
+### Tag
+
+Tags serve as markers in a repository's history and are often used to signify specific releases.
+
+Creating tags can be done either through the Gitflow menu or using the command line. When you create a tag from the Gitflow menu in GitKraken Client, it will automatically use the same name as the branch you are tagging. For instance, if you create a tag from a "release/1.0.0" branch, the tag will be named "1.0.0." Moreover, you have the option to include a tag message when finishing a branch, and this message will be attached to the tag.
+
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//finish-release-tag.gif"
+    alt="Gitflow Tag"
+    width="804.734"
+    height="452.656"
+  />
+</p>
+
+In the GitKraken Client's Preferences under the Gitflow settings, you can set a tag prefix. When you create a tag from the Gitflow menu, the specified prefix will be added to the tag name. For instance, if you set the tag prefix as "v," and you create a tag from a "release/1.0.0" branch, GitKraken Client will create a tag named "v1.0.0." This allows for better organization and distinction between regular branch names and tag names.
+
+<p align="center">
+  <Image
+    src="https://help.gitkraken.com/wp-content/uploads//tag-prefix.png"
+    alt="Gitflow Tag Prefix"
+    width="729"
+    height="352"
+  />
+</p>
 
 ## Conclusions
 
-In conclusion, Gitflow offers a structured and efficient workflow for collaborative software development. By defining specific branches for different purposes and following best practices, teams can work harmoniously and deliver reliable, stable code. The choice between Git merge and Git rebase depends on the desired commit history and the nature of the feature branches.
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanhmbmRsNXRoZnZmdmJ2ZzdlNjJkeTk1ZHU0bG9vM251NjJuaDB2ZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/soDqW21ZbC1oc/giphy.gif"
+    alt="Conclusions"
+  />
+</p>
+
+In conclusion, let's break the bad habits combining GitKraken and GitFlow!
+
+Gitflow offers a structured and efficient workflow for collaborative software development, by defining specific branches for different purposes and following best practices, teams can work harmoniously and deliver reliable, stable code. The choice between Git merge and Git rebase depends on the desired commit history and the nature of the feature branches.
 
 With the help of tools like GitKraken, implementing Gitflow becomes even more manageable, as the client streamlines the process and provides an intuitive interface for all team members.
 
 So, embrace the Gitflow, unleash the Kraken, and take your development workflow to new heights! Happy coding!
+
+If you found this useful feel free to leave a comment here or to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal), or [mail](mailto:rick.zal239@gmail.com) and share it with your dev friends!
