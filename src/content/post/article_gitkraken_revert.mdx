@@ -1,0 +1,205 @@
+---
+publishDate: 2023-08-04T00:00:00Z
+title: "Don't worry about your wrong commits, Revert Hero is here!"
+description: 'A group of heroes can save your days at GitCity: The GitVengers!'
+excerpt: 'A group of heroes can save your days at GitCity: The GitVengers!'
+image: ~/assets/images/gitkraken_revert.png
+category: GitKraken
+tags:
+  - Git
+  - GitKraken
+  - Revert
+  - Source control
+---
+
+import { Image } from '@astrojs/image/components';
+
+Hello there, TheZal here! Today, we're going to talk about one of the Git Superhero that can save you hours, days and migraines: the **Revert Hero**.
+
+<p align="center">
+  <img
+    src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTMyMDdmMDEwN2Y1MmU3NWZiM2EzOGE3NDZmNDExMmU5MDkxZjMyZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Nx0rz3jtxtEre/giphy.gif"
+    alt="Hello There!"
+  />
+</p>
+
+- [Who is Revert Hero?](#who-is-revert-hero)
+- [How can I summon him in the terminal?](#how-can-i-summon-him-in-the-terminal?)
+- [The legendary pet of the hero: GitKraken Client!](#the-legendary-pet-of-the-hero-gitkraken-client!)
+- [The legendary tool of the hero: GitLens!](#the-legendary-tool-of-the-hero-gitlens!)
+- [The GitVengers!](#the-gitvengers!)
+- [Conclusions](#conclusions)
+
+## Who is Revert Hero?
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/v02bjcue-NgAAAAC/great-saiyaman.gif"
+    alt="Who is Revert Hero?"
+  />
+</p>
+
+Ever heard of a superhero named Revert Hero? If you're knee-deep in the coding world, this might just be your new favorite caped crusader!
+
+Imagine having a superhero with the uncanny ability to undo mistakes and revert things to a previous state, just like the "git revert" function in version control systems, need to fix that bug that slipped through testing? Revert Hero's got your back. Accidentally deleted crucial code? Fear not, Revert Hero can bring it back in a flash.
+
+With the power to rewind time on code changes, this hero is your safety net against development disasters. So, next time you find yourself trapped in a coding conundrum, remember to call on Revert Hero – because sometimes, a simple undo can save the day in the most heroic way!
+
+Revert Hero's powers are a developer's dream come true: with a mere thought, this tech-savvy superhero can roll back changes to a previous version effortlessly, just like hitting the "undo" button on life's mistakes.
+
+Accidental commits, messy merges, and catastrophic code conflicts? Revert Hero swoops in to make them history, his power to selectively revert changes, whether it's a single line or an entire commit, is nothing short of miraculous.
+
+But that's not all – he can also elegantly handle complex scenarios, like reverting changes made across multiple branches without breaking a sweat, need to extract that crucial piece of code from an older version? Revert Hero's got you covered, ensuring that no valuable snippet is ever lost to the void.
+
+In the fast-paced world of software development, where mistakes are inevitable, Revert Hero emerges as the ultimate shield, ensuring that every misstep can be rectified with a click of his digital fingers.
+
+## How can I summon him in the terminal?
+
+<p align="center">
+  <img width="480" height="480" src="https://media.tenor.com/NLcODnpUkYsAAAAC/summon.gif" alt="Summoning Revert Hero" />
+</p>
+
+Summoning Revert Hero into your terminal is easier than you might think! Just follow these steps to harness his powers and gracefully revert single or multiple commits:
+
+1. **Invoke Revert Hero**: Open your terminal and navigate to your project's directory using the cd command.
+
+1. **Connect with the Repository**: Make sure you're in the repository where the commits you want to revert are located.
+
+1. **Single Commit Reversion**: To revert a single commit, type the command: `git revert <commit-hash>`. Replace `<commit-hash>` with the actual hash of the commit you want to revert. Revert Hero will swing into action, creating a new commit that undoes the changes from the specified commit.
+
+1. **Multiple Commits Reversion**: For a batch of commits, use: `git revert <commit-hash1>..<commit-hash2>`. Replace `<commit-hash1>` with the hash of the earliest commit and `<commit-hash2>` with the hash of the latest commit in the range you want to revert. Revert Hero will again work his magic, crafting a series of new commits to reverse those changes.
+
+1. **Interactive Reversion**: To have a more hands-on approach and pick specific changes to revert within a single commit, utilize: `git revert -i <commit-hash>`. This opens an interactive menu where you can select which changes to revert.
+
+1. **Handle Conflicts**: Sometimes, even Revert Hero might face challenges in merging reversion commits. If conflicts arise, you'll need to resolve them manually and then commit the resolved changes.
+
+1. **Review and Push**: After Revert Hero has done his job, review the changes in your codebase. If satisfied, commit the reversion and push it to your remote repository to share the superhero's undoing prowess with your team.
+
+And there you have it! Revert Hero will be summoned, and your commits will be gracefully undone, saving the day and preserving the integrity of your project's codebase.
+
+## The legendary pet of the hero: GitKraken Client!
+
+<p align="center">
+  <img width="480" height="480" src="https://i.gifer.com/7Ky8.gif" alt="Summoning the Kraken!" />
+</p>
+
+Summoning Revert Hero in the GitKraken client is just as straightforward! GitKraken provides a user-friendly interface that makes it easy to harness his powers for reverting commits. Here's how you can do it:
+
+1. **Open Repository in GitKraken**: Launch GitKraken and open the repository where you want to perform the commit reversion.
+
+1. **Visualize Commits**: In GitKraken's graphical interface, you'll see a timeline of commits. Locate the commit you want to revert. You can use filters, branches, and search options to help you find the specific commit.
+
+1. **Right-Click on Commit**: Right-click on the commit you want to revert. A context menu will appear.
+
+1. **Select Revert Commit**: From the context menu, choose the "Revert Commit" option. GitKraken will initiate Revert Hero's powers.
+
+1. **Review Changes**: A new commit will be created that effectively undoes the changes from the selected commit. GitKraken will automatically open a window where you can review the changes before finalizing the reversion.
+
+1. **Edit Commit Message**: You can modify the commit message if needed to provide clarity about the reversion.
+
+1. **Commit and Push**: Once satisfied, hit the "Commit" button. The reversion commit will be added to your repository's history. Don't forget to push the changes to your remote repository to share the magical reversion with your collaborators.
+
+By following these steps within the GitKraken client, you can summon Revert Hero and let him gracefully undo the effects of specific commits, all while enjoying the convenience of a graphical interface.
+
+## The legendary tool of the hero: GitLens!
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/PylYoJt2nGkAAAAC/mysterio-power.gif"
+    alt="Gitlen's power"
+  />
+</p>
+
+Summoning Revert Hero's powers within Visual Studio Code using GitLens is a breeze! GitLens is a powerful extension that enhances your Git experience within the editor. Here's how you can use it to revert commits:
+
+1. **Install GitLens**: If you haven't already, install the GitLens extension from the Visual Studio Code marketplace. You can do this by navigating to the Extensions view (Ctrl+Shift+X) and searching for "GitLens."
+
+1. **Open Repository in Visual Studio Code**: Open the repository you want to work on in Visual Studio Code.
+
+1. **Navigate to Commits**: In the Source Control panel (Ctrl+Shift+G), click on the "Commits" tab to see the list of commits.
+
+1. **Locate the Commit**: Find the commit you want to revert from the list. You can see the commit message, author, and date in this view.
+
+1. **Right-Click on Commit**: Right-click on the commit you want to revert. A context menu will appear.
+
+1. **Choose Revert Commit**: From the context menu, select the "Revert Commit" option. GitLens will kick in and start the process of reverting the commit.
+
+1. **Review and Edit**: A new commit message window will appear, allowing you to review and edit the commit message if desired.
+
+1. **Commit and Push**: Once satisfied, click the "Commit" button. GitLens will create the reversion commit for you.
+
+1. **Push Changes**: Don't forget to push the changes to your remote repository to share the reversion with your team.
+
+By utilizing GitLens within Visual Studio Code, you can effortlessly summon Revert Hero and utilize his powers to undo commits, all while staying within the familiar and convenient environment of your favorite code editor.
+
+## The GitVengers!
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://allears.net/wp-content/uploads/2020/10/avengers-gif.gif"
+    alt="The GitVengers!"
+  />
+</p>
+
+Let's dive into the world of these version control superheroes and discover their unique powers and why you might want to summon them:
+
+### Rebaser - The Master of Rebase
+
+Rebaser wields the extraordinary power of git rebase. This superhero can rewrite the history of your commits with finesse. Summon Rebaser when your commit history is a bit messy, with too many branches or too much clutter. By combining and rearranging commits, Rebaser transforms your history into a streamlined narrative, eliminating unnecessary branching and creating a more coherent storyline. Need to integrate changes from multiple branches smoothly? Rebaser's your go-to hero. Just remember, with great power comes great responsibility – be cautious when rewriting history!
+
+### Doctor Amend - The Artful Amender
+
+Doctor Amend possesses the incredible ability of git amend. This hero lets you fine-tune your latest commit without creating a new one. Imagine you forgot to include a crucial file, or you made a minor typo in your commit message – that's where Doctor Amend shines. Summon him to make those last-minute fixes, ensuring that your commit history remains clean and accurate. It's a small but powerful trick to maintain a polished codebase without cluttering it with trivial commits.
+
+### Resetter - The Time Traveling Resetter
+
+Resetter commands the formidable power of git reset. This superhero can turn back time on your branch, effectively erasing commits and resetting your work to a previous state. Summon Resetter when you've ventured down the wrong path or when a feature branch has spiraled out of control. By resetting your branch, Resetter gives you a fresh start, letting you rethink your approach or untangle complex issues. But beware, this power should be used with caution, as it can lead to loss of work if not used wisely.
+
+Each of these version control superheroes offers a unique ability that can save the day in different coding scenarios. Whether it's streamlining your history, making quick adjustments, or resetting your direction, Rebaser, Doctor Amend, and Resetter stand ready to assist you in your development journey. Just remember, like any superhero team, knowing when and how to call upon their powers is the key to harnessing their potential effectively!
+
+## Conclusions
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/YHDk9U9pUQQAAAAC/avengers-assemble-ready.gif"
+    alt="Conclusions"
+  />
+</p>
+
+Here's a punchlist of the version control superheroes along with their powers:
+
+1. Revert Hero:
+
+- **Power**: Can effortlessly revert changes to a previous state, similar to the "git revert" function.
+- **Abilities**: Can undo single or multiple commits, recover lost code, and elegantly handle complex branching scenarios.
+- **When to Summon**: When you need to undo mistakes, fix bugs, or restore lost code without disrupting your project's history.
+
+1. Rebaser:
+
+- **Power**: Wields the ability to rewrite commit history using the "git rebase" function.
+- **Abilities**: Can combine, rearrange, and simplify commits, resulting in a cleaner and more cohesive commit history.
+- **When to Summon**: When you want to streamline your commit history, integrate changes from multiple branches, or create a linear narrative.
+
+1. Doctor Amend:
+
+- **Power**: Possesses the skill of amending commits using the "git amend" function.
+- **Abilities**: Can make minor adjustments to the most recent commit, including modifying the commit message or adding forgotten files.
+- **When to Summon**: When you need to make quick fixes to your latest commit without cluttering your history with trivial changes.
+
+1. Resetter:
+
+- **Power**: Controls the power of resetting branch state with the "git reset" function.
+- **Abilities**: Can reset a branch to a previous commit, effectively undoing changes and providing a fresh starting point.
+- **When to Summon**: When you find yourself on the wrong track, need to discard unwanted changes, or want to rethink your approach.
+
+Each superhero offers a distinct set of powers that cater to different needs in the world of version control. Whether it's undoing mistakes, streamlining history, making quick adjustments, or resetting direction, these heroes are here to assist developers in maintaining a smooth and organized development process. Just remember to use their powers wisely and strategically, as each action can have a significant impact on your codebase's history and development workflow.
+
+If you found this useful feel free to leave a comment here or to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal), or [mail](mailto:rick.zal239@gmail.com) and share it with your dev friends!
