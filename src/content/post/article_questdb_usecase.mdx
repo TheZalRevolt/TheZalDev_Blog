@@ -1,0 +1,176 @@
+---
+publishDate: 2023-09-27T00:00:00Z
+title: "How QuestDB saved a project and the team's mental health"
+description: 'Revolt ❤️ QuestDB'
+excerpt: 'Revolt ❤️ QuestDB'
+image: ~/assets/images/questdb_use_case.png
+category: QuestDB
+tags:
+  - QuestDB
+  - time-series
+  - Data Analytics
+  - Database
+---
+
+import { Image } from '@astrojs/image/components';
+
+Hello there, TheZal here! I'm a software engineer at [Revolt Srl](https://www.revoltsrl.com/home), a startup aiming to revolutionize the perception of data by attributing its true value and enabling easy accessibility, especially in the energy sector.
+
+Currently, we have several projects, and this article will discuss how the use of QuestDB has changed the game in one of our biggest projects, improving performance and mental well-being, and enabling the team to save countless hours. So let's dive into it!
+
+<p align="center">
+  <img
+    src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTMyMDdmMDEwN2Y1MmU3NWZiM2EzOGE3NDZmNDExMmU5MDkxZjMyZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Nx0rz3jtxtEre/giphy.gif"
+    alt="Hello There!"
+  />
+</p>
+
+- [The Project](#the-project)
+- [The Problems](#the-problems)
+- [The Solution: QuestDB](#the-solution-questdb)
+- [A little bit deeper](#a-little-bit-deeper)
+- [Why QuestDB?](#why-questdb)
+- [What is improved by QuestDB?](#what-is-improved-by-questdb)
+- [Conclusions](#conclusions)
+
+## The Project
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://i.pinimg.com/originals/60/69/06/6069060ed00f7ecc749c32a5dd84b188.gif"
+    alt="The Project"
+  />
+</p>
+
+So, no more talk, let's dive deep into the project!
+
+The project is an old-fashioned analysis to create some structured KPIs from a huge amount of data of many different types for a big company.
+
+Let's get a focus on the technical flow of the project and explore the steps of this flow:
+
+1. **The data generation**: this step is not under our control, we receive the data from the company inside a platform called Splunk where the data can be downloaded in the CSV format
+1. **The data ingestion**: this is the first step under our control, we download the data from Splunk, clean it, and store it in an S3 bucket using an importer outside the company network, so we can access the data from our network without any problem
+1. **The first analysis aka from raw to KPIs**: in this step, we use some custom Python scripts that communicate with the s3 bucket to create some KPIs and we store the results in a Postgres database
+1. **The human analysis**: here is where the human factor comes in, we have a team of data scientists that use the KPIs to create some reports and some analyses based on the client's needs
+
+But hey, I won't bore you with the nitty-gritty of the analysis algorithms or the human touch that comes after. That's not my jam. I'm a software engineer, and I'm here to talk about the technical side of the project.
+
+## The Problems
+
+<p align="center">
+  <img width="480" height="480" src="https://media4.giphy.com/media/QMHoU66sBXqqLqYvGO/giphy.gif" alt="The Solution" />
+</p>
+
+Alright, let's get real here. This project, it's got some great potential, but I can't help feeling a bit underwhelmed by the current setup. Sure, we're doing some cool things with data, but there's a cloud of issues looming over our heads that need fixing.
+
+First, the data centralization headache. Having multiple copies of the same CSVs floating around is a recipe for chaos. It's like searching for a needle in a haystack when you need that one crucial piece of data.
+
+And then, there's the performance hiccup. Processing all that data on local machines? It's not just a bottleneck; it's a traffic jam during rush hour. We need a smarter, faster way to handle this data overload.
+
+## The Solution: QuestDB
+
+<p align="center">
+  <img width="480" height="480" src="https://media.tenor.com/Ay19-AbBCfIAAAAC/hangover-math.gif" alt="The Solution" />
+</p>
+
+So, what's the solution? SPOILER IN THE TITLE! Well, we need a database that can handle the data load and provide a centralized data source for the team, a database that is optimized to work with time-series data and that can be reached using some common protocols like Postgres wire protocol. And that's where QuestDB comes in.
+
+Alright, let's talk about QuestDB. Now, if you're into data management, this is one name you want to know. QuestDB is like the cool, no-nonsense kid on the block when it comes to time-series databases.
+
+So, what's the deal with QuestDB? Well, it's a lightning-fast, open-source database built specifically for handling time-series data. Think of it as your go-to tool for crunching and analyzing data that evolves over time, like stock prices, sensor readings, or even social media trends.
+
+But here's the kicker: QuestDB isn't your run-of-the-mill database. It's designed for crazy-fast queries, thanks to its super-efficient architecture. And it's not just about speed; it's also got a nifty SQL interface, making it a breeze for SQL junkies to work their magic.
+
+So, whether you're tracking financial markets, monitoring IoT devices, or just curious about trends, QuestDB is your trusty sidekick. It's like having a Ferrari for your data needs, and I'm all in for the ride!
+
+## A little bit deeper
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/ILtZ9nieuuoAAAAC/michael-scott.gif"
+    alt="A little bit deeper"
+  />
+</p>
+
+Let me break it down for you, folks. QuestDB isn't just fantastic; it's downright mind-blowing. Why, you ask? Well, let me count the ways.
+
+First up, its column-oriented architecture. That's like having a perfectly organized filing cabinet for your data. It means lightning-fast queries, minimal storage space, and efficient data compression. It's like a data ninja, optimizing everything in the background.
+
+But here's where it gets even more awesome. You can interact with QuestDB in multiple ways. There's the Web Console, a user-friendly interface that lets you dive right into your data. Then, it plays nicely with InfluxDB, so if you're coming from that world, the transition is smooth as silk. But wait, there's more! It speaks the PostgreSQL wire protocol, making it super easy to integrate into existing setups. And if you're all about modern web apps, the HTTP REST API is your ticket to seamless interaction.
+
+In a nutshell, QuestDB is a data powerhouse, combining smart architecture with a plethora of ways to make your data dreams come true. It's a game-changer, plain and simple.
+
+## Why QuestDB?
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/2fcaKi82crUAAAAC/gotta-go-fast-sonic-the-hedgehog.gif"
+    alt="Why QuestDB?"
+  />
+</p>
+
+There are multiple answers to the "Why QuestDB?" question, and I'll give you some of these answers here:
+
+1. **Performance**: it's fast. Like, really fast. And that's a big deal when you're dealing with massive amounts of data. I won't write more about performance, of course, there is a lot of documentation about it, but I'll leave you with this [link](https://questdb.io/blog/comparing-influxdb-timescaledb-questdb-time-series-databases/) to an article quoted on the official documentation
+1. **Open source**: do I really need to talk to you about what are the advantages of an open-source project? I don't think so, but just to mention some of them: you can contribute to the project, you can use it for free, you can kindly ask for new features that can fit your needs, and so on... And if you want to know more about the advantages of open-source software, you can read this [article](https://opensource.com/resources/what-open-source)
+1. **Protocols**: as mentioned before QuestDB can be reached using some common protocols like Postgres wire protocol, InfluxDB protocol, and HTTP REST API. This is a big deal because it means that you can use QuestDB in a lot of different ways and you can integrate it in a lot of different projects. For example, in our project we use the Postgres wire protocol to connect to QuestDB from our Python scripts and we use the HTTP REST API to connect to QuestDB from our web application
+
+Want to know more? Check out the [QuestDB website](https://questdb.io/) and the [QuestDB documentation](https://questdb.io/docs/introduction/).
+
+## What is improved by QuestDB?
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://media.tenor.com/fvCLHApzwu4AAAAC/much-better-guy.gif"
+    alt="What is improved by QuestDB?"
+  />
+</p>
+
+So what really QuestDb bring to the table? Well, let's see:
+
+1. **Data centralization**: QuestDB is a centralized database, so we can access the data from everywhere and we don't have to worry about multiple copies of the same data
+1. **Performance**: QuestDB solved the problem we had with the performance, now we can query the data in a matter of milliseconds and we can process the data in a matter of seconds instead of querying the data locally and processing the data in a matter of minutes
+1. **New Sql extensions**: QuestDB has some new SQL extensions that are really useful for our project, for example the `SAMPLE BY` extension that allows us to sample the data in a really easy way
+
+So now our flow is [faster, stronger and better](https://www.youtube.com/watch?v=yydNF8tuVmU) than before, and we can focus on the human analysis part of the project without worrying about the technical part.
+
+## Conclusions
+
+<p align="center">
+  <img
+    width="480"
+    height="480"
+    src="https://y.yarn.co/ddfc5603-0f55-4412-bab1-88368fbfc0c9_text.gif"
+    alt="Conclusions"
+  />
+</p>
+
+Jumping to the conclusions of this article, I can say that QuestDB is a really powerful tool that can help you solve a lot of problems related to time-series data, and it's really easy to integrate it into your project.
+
+It wouldn't be possible to achieve the same results without the collaboration inside the team, so I want to thank the team for the great work and for the great collaboration especially my colleague [Stefano](https://gitlab.com/glino1992) who decided to embrace the usage of QuestDB in our project developing a tool that allow the ingestion in QuestDB from cli with just one command.
+
+import telegram_message from '~/assets/images/telegram_message.png';
+
+<p align="center">
+  <Image src={telegram_message} alt="A message full of ❤️ for QuestDB" />
+</p>
+
+This message from Stefano translated in english said:
+
+**"Good news, guys. Customer tags are running on my machine with 30 days of data (29GB partially compressed, ~200 million rows of tables) in less than 15 minutes, thanks to QuestDB! There's still a small issue to resolve, but the heavy queries have been successful, with potential for further improvement** ⚡️⚡️⚡️
+
+**Have a great weekend"** 🥹
+
+witness a little result we achieved using QuestDB, and it's just the beginning!
+
+So, if you're looking for a time-series database, I highly recommend you to give QuestDB a try, you won't regret it!
+
+If you found this useful feel free to leave a comment here or to reach me on [Twitter](https://twitter.com/TheZalDev), [GitHub](https://github.com/TheZal), or [mail](mailto:rick.zal239@gmail.com) and share it with your dev friends!
